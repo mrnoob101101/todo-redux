@@ -1,52 +1,51 @@
 import {
-  ButtonDeleteAllStyled,
-  ButtonDeleteCheckedStyled,
-  SortButtonStyled,
+    ButtonDeleteAllStyled, ButtonDeleteCheckedStyled, SortButtonStyled, ToggleButtonStyled,
 } from "./SortingBlock.styles";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import {
-  deleteAll,
-  deleteChecked,
-  TurnOFFAlphabeticallyOrder,
-} from "../../app/actions";
-import { useState } from "react";
+    deleteAll, deleteChecked, sortTasks, toggleAlphabeticallyOrder,
+} from "../../redux/actions/actions";
+import {useState} from "react";
 
-export const SortButton = () => {
-  const [buttonText, setButtonText] = useState("ON");
+export const AlphabeticallyOrderToggle = ({sortingToggle}) => {
 
-  const dispatch = useDispatch();
+    const [buttonText, setButtonText] = useState("ON");
+    const dispatch = useDispatch();
 
-  const handlerOnclick = () => {
-    setButtonText("OFF");
-    dispatch(TurnOFFAlphabeticallyOrder());
-  };
+    const handlerOnclick = () => {
+        sortingToggle ? setButtonText("OFF") : setButtonText("ON")
+        dispatch(toggleAlphabeticallyOrder());
+    };
 
-  return (
-    <SortButtonStyled
-      onClick={() => {
-        handlerOnclick();
-      }}
+    return (<ToggleButtonStyled
+        onClick={() => {
+            handlerOnclick();
+        }}
     >
-      Adding tasks in alphabetical order {buttonText}
-    </SortButtonStyled>
-  );
+        Adding tasks in alphabetical order {buttonText}
+    </ToggleButtonStyled>);
 };
 
-export const ButtonDeleteChecked = () => {
-  const dispatch = useDispatch();
+export const SortButton = () => {
+    const dispatch = useDispatch();
 
-  return (
-    <ButtonDeleteCheckedStyled onClick={() => dispatch(deleteChecked())}>
-      Delete checked
-    </ButtonDeleteCheckedStyled>
-  );
+    return (<SortButtonStyled onClick={() => dispatch(sortTasks())}>Sort
+        </SortButtonStyled>
+
+    )
+}
+
+export const ButtonDeleteChecked = () => {
+    const dispatch = useDispatch();
+
+    return (<ButtonDeleteCheckedStyled onClick={() => dispatch(deleteChecked())}>
+        Delete checked
+    </ButtonDeleteCheckedStyled>);
 };
 
 export const ButtonDeleteAll = () => {
-  const dispatch = useDispatch();
-  return (
-    <ButtonDeleteAllStyled onClick={() => dispatch(deleteAll())}>
-      Delete all
-    </ButtonDeleteAllStyled>
-  );
+    const dispatch = useDispatch();
+    return (<ButtonDeleteAllStyled onClick={() => dispatch(deleteAll())}>
+        Delete all
+    </ButtonDeleteAllStyled>);
 };

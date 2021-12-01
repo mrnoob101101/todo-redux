@@ -14,13 +14,13 @@ export const StyledNewTask = styled.div`
 
 export const TaskContainer = styled.div``;
 
-export const Text = styled.p`
+export const Text = styled.span`
   ${(props) =>
-    props.isCompleted
-      ? "text-decoration: line-through;\n" +
-        "  color: gray;\n" +
-        "  transition: 1s;"
-      : "none"};
+          props.isCompleted
+                  ? "text-decoration: line-through;\n" +
+                  "  color: gray;\n" +
+                  "  transition: 1s;"
+                  : "none"};
   display: flex;
   margin-top: 0;
   line-height: 1.2;
@@ -38,6 +38,7 @@ export const Date = styled.p`
 
 export const ImgCheckBoxStyled = styled.img`
   margin: 10px 3px 5px 3px;
+
   :hover {
     transform: scale(1.2);
     transition: 0.4s;
@@ -46,6 +47,7 @@ export const ImgCheckBoxStyled = styled.img`
 export const ImgDeleteStyled = styled.img`
   margin: 10px 3px 5px 3px;
   padding-bottom: 2px;
+
   :hover {
     transform: scale(1.2);
     transition: 0.4s;

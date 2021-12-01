@@ -1,0 +1,8 @@
+export const ADD_TODO = "ADD_TODO";
+export const DELETE_ALL = "DELETE_ALL";
+export const DELETE_TASK = "DELETE_TASK";
+export const COMPLETE_TASK = "COMPLETE_TASK";
+export const DELETE_CHECKED = "DELETE_CHECKED";
+export const TOGGLE_SORT_ALPHABETICALLY = "TOGGLE_SORT_ALPHABETICALLY";
+export const ADD_TODO_IN_ORDER = "ADD_TODO_IN_ORDER";
+export const SORT_TASKS = "SORT_TASKS";

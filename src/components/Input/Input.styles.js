@@ -36,6 +36,7 @@ export const AddButtonStyled = styled.button`
   margin: 5px 0 5px 0.5em;
   font-size: 20px;
   text-align: center;
+
   :hover {
     background-color: #eeaf9d;
   }
